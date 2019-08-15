@@ -12,20 +12,33 @@ import javax.servlet.http.HttpServletResponse;
 @RequestMapping("login")
 public class LoginController {
     @GetMapping("/login")
-    public String login(){
+    public String login() {
         return "/login/login.html";
     }
+
     @RequestMapping("/index")
-    public String index(HttpServletRequest request, HttpServletResponse response){
+    public String index(HttpServletRequest request, HttpServletResponse response) {
         String user = request.getParameter("user");
         String pwd = request.getParameter("pwd");
 
         return "/login/index.html";
     }
-    @RequestMapping("/main")
-    public String main(HttpServletRequest request, HttpServletResponse response){
-        String user = request.getParameter("user");
-        String pwd = request.getParameter("pwd");
-        return "/index/index.html";
+
+    @RequestMapping("/form")
+    public String main(HttpServletRequest request, HttpServletResponse response) {
+
+        return "/index/form.html";
+    }
+
+    @RequestMapping("/table")
+    public String table(HttpServletRequest request, HttpServletResponse response) {
+
+        return "/index/table.html";
+    }
+
+    @RequestMapping("/colrow")
+    public String colrow(HttpServletRequest request, HttpServletResponse response) {
+
+        return "/index/colrow.html";
     }
 }
