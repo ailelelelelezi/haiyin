@@ -40,12 +40,12 @@
     <li class="layui-nav-item">
         <a href="javascript:;" target="main_frame">解决方案</a>
         <dl class="layui-nav-child"> <!-- 二级菜单 -->
-            <dd><a href="../login/colrow" target="main_frame">布局</a></dd>
-            <dd><a href="" target="main_frame">后台模版</a></dd>
-            <dd><a href="" target="main_frame">电商平台</a></dd>
+            <dd><a href="../login/container" target="main_frame">布局</a></dd>
+            <dd><a href="../login/button" target="main_frame">按钮</a></dd>
+            <dd><a href="../login/tab" target="main_frame">选项卡</a></dd>
         </dl>
     </li>
-    <li class="layui-nav-item"><a>社区</a></li>
+    <li class="layui-nav-item"><a href="../login/time" target="main_frame">时间线</a></li>
     <div class="menu-top-right">
         <li class="layui-nav-item">
             <a href="">控制台<span class="layui-badge">9</span></a>
@@ -82,7 +82,7 @@
         // var all_width = $("body").width();
         // $("iframe").width(all_width - left_width);
         var height = window.innerHeight;
-        $("iframe").height(height - 60);
+        $("iframe").height(height - 70);//下边距为10,不要下边距减去60
     }
 </script>
 </body>

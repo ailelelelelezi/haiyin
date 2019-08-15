@@ -36,9 +36,24 @@ public class LoginController {
         return "/index/table.html";
     }
 
-    @RequestMapping("/colrow")
+    @RequestMapping("/container")
     public String colrow(HttpServletRequest request, HttpServletResponse response) {
 
-        return "/index/colrow.html";
+        return "/index/container.html";
+    }
+    @RequestMapping("/button")
+    public String button(HttpServletRequest request, HttpServletResponse response) {
+
+        return "/index/button.html";
+    }
+    @RequestMapping("/tab")
+    public String tab(HttpServletRequest request, HttpServletResponse response) {
+
+        return "/index/tab.html";
+    }
+    @RequestMapping("/time")
+    public String time(HttpServletRequest request, HttpServletResponse response) {
+
+        return "/index/time.html";
     }
 }
