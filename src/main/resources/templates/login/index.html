@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>主页</title>
+    <link rel="stylesheet" href="../js/layui/css/layui.css">
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script src="../js/layui/layui.js"></script>
+    <style>
+        body {
+            overflow: hidden;
+        }
+
+        .menu-top-right {
+            float: right;
+        }
+
+        .menu-left {
+            float: left;
+        }
+
+        iframe {
+            float: left;
+            border: none;
+
+        }
+    </style>
+</head>
+<body>
+<ul class="layui-nav menu-top-left" lay-filter="">
+    <li class="layui-nav-item"><a href="">最新活动</a></li>
+    <li class="layui-nav-item layui-this"><a href="">产品</a></li>
+    <li class="layui-nav-item"><a href="">大数据</a></li>
+    <li class="layui-nav-item">
+        <a href="javascript:;">解决方案</a>
+        <dl class="layui-nav-child"> <!-- 二级菜单 -->
+            <dd><a href="">移动模块</a></dd>
+            <dd><a href="">后台模版</a></dd>
+            <dd><a href="">电商平台</a></dd>
+        </dl>
+    </li>
+    <li class="layui-nav-item"><a href="">社区</a></li>
+    <div class="menu-top-right">
+        <li class="layui-nav-item">
+            <a href="">控制台<span class="layui-badge">9</span></a>
+        </li>
+        <li class="layui-nav-item">
+            <a href="">个人中心<span class="layui-badge-dot"></span></a>
+        </li>
+        <li class="layui-nav-item">
+            <a href=""><img src="//t.cn/RCzsdCq" class="layui-nav-img">我</a>
+            <dl class="layui-nav-child">
+                <dd><a href="javascript:;">修改信息</a></dd>
+                <dd><a href="javascript:;">安全管理</a></dd>
+                <dd><a href="javascript:;">退了</a></dd>
+            </dl>
+        </li>
+    </div>
+</ul>
+<ul class="layui-nav layui-nav-tree menu-left" lay-filter="test">
+    <!-- 侧边导航: <ul class="layui-nav layui-nav-tree layui-nav-side"> -->
+    <li class="layui-nav-item layui-nav-itemed">
+        <a href="javascript:;">默认展开</a>
+        <dl class="layui-nav-child">
+            <dd><a href="javascript:;">选项1</a></dd>
+            <dd><a href="javascript:;">选项2</a></dd>
+            <dd><a href="">跳转</a></dd>
+        </dl>
+    </li>
+    <li class="layui-nav-item">
+        <a href="javascript:;">解决方案</a>
+        <dl class="layui-nav-child">
+            <dd><a href="">移动模块</a></dd>
+            <dd><a href="">后台模版</a></dd>
+            <dd><a href="">电商平台</a></dd>
+        </dl>
+    </li>
+    <li class="layui-nav-item"><a href="">产品</a></li>
+    <li class="layui-nav-item"><a href="">大数据</a></li>
+</ul>
+<iframe src="/login/main"  ></iframe>
+<script>
+    //设置iframe的宽度,
+    $(function () {
+        autoIframe();
+    })
+    $(window).resize(function() {
+        autoIframe();
+    });
+    function autoIframe(){
+        var left_width = $(".menu-left").width();
+        var all_width = $("body").width();
+        $("iframe").width(all_width - left_width);
+        var height=window.innerHeight;
+        $("iframe").height(height-60);
+    }
+</script>
+</body>
+</html>
