@@ -1,6 +1,7 @@
 package com.xule.haiyin.login;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,13 +24,22 @@ public class LoginController {
     }
 
     @RequestMapping("/index")
-    public String index(HttpServletRequest request, HttpServletResponse response) {
+    public String index(HttpServletRequest request, HttpServletResponse response, Model model) {
+        Object user1 = request.getSession().getAttribute("user");
+        if(user1!=null){
+            return "/login/index.html";
+        }
         String user = request.getParameter("user");
         String pwd = request.getParameter("pwd");
         if (user.equals("admin") && pwd.equals("admin")) {
             request.getSession().setAttribute("user", user);
             return "/login/index.html";
-        } else {
+        }else if(user.equals("xule") && pwd.equals("123456")){
+            request.getSession().setAttribute("user", user);
+            return "/login/index.html";
+        }
+        else {
+            model.addAttribute("msg","用户名或密码错误，请重新输入！");
             return "/login/login.html";
         }
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>登录</title>
@@ -28,7 +28,7 @@
     <div class="layui-form-item">
         <label class="layui-form-label">用户名</label>
         <div class="layui-input-inline">
-            <input type="text" name="user" lay-verify="required" placeholder="请输入用户名" autocomplete="off"
+            <input type="text" name="user" required lay-verify="required" placeholder="请输入用户名" autocomplete="off"
                    class="layui-input">
         </div>
     </div>
@@ -49,6 +49,7 @@
     </div>
 </form>
 
+<input type="hidden" id="msg" th:value="${msg}"/>
 <script>
     layui.use(['laydate', 'laypage', 'layer', 'table', 'carousel', 'upload', 'element', 'slider'], function () {
         var laydate = layui.laydate //日期
@@ -59,7 +60,10 @@
             , upload = layui.upload //上传
             , element = layui.element //元素操作
             , slider = layui.slider //滑块
-
+        var msg = $("#msg").val();
+        if (msg != "") {
+            layer.alert(msg);
+        }
         $("#login").click(function (event) {
             var user = $("[name=user]").val();
             var pwd = $("[name=pwd]").val();

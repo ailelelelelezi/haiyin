@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>主页</title>
@@ -29,7 +30,7 @@
         <div class="layui-logo">安全监测审计系统</div>
         <!-- 头部区域（可配合layui已有的水平导航） -->
         <ul class="layui-nav layui-layout-left">
-            <li class="layui-nav-item layui-this"><a href="../login/debug" target="main_frame">开发工具</a></li>
+            <li class="layui-nav-item layui-this"><a href="../login/debug" target="main_frame">主页</a></li>
             <li class="layui-nav-item "><a href="form" target="main_frame">表单</a></li>
             <li class="layui-nav-item"><a href="table" target="main_frame">列表</a></li>
             <li class="layui-nav-item layadmin-flexible"><a href="javascript:;" layadmin-event="flexible" title="侧边伸缩">
@@ -59,9 +60,9 @@
                 <a href="">个人中心<span class="layui-badge-dot"></span></a>
             </li>
             <li class="layui-nav-item">
-                <a href=""><img src="//t.cn/RCzsdCq" class="layui-nav-img">我</a>
+                <a href="" ><img src="//t.cn/RCzsdCq" class="layui-nav-img"><span th:text="${session.user}"></span></a>
                 <dl class="layui-nav-child">
-                    <dd><a href="javascript:;">修改信息</a></dd>
+                    <dd><a href="../user/edit" target="main_frame">修改信息</a></dd>
                     <dd><a href="javascript:;">安全管理</a></dd>
                     <dd><a href="../login/login_out">退出</a></dd>
                 </dl>
@@ -106,7 +107,7 @@
     </div>
 
     <div class="layui-body">
-        <iframe src="/login/form" name="main_frame"></iframe>
+        <iframe src="../login/debug" name="main_frame"></iframe>
 
     </div>
 
@@ -117,11 +118,12 @@
 </div>
 <script>
     //JavaScript代码区域
-    layui.use('element', function () {
-        var element = layui.element;
+    layui.use(['laydate', 'laypage', 'layer', 'table', 'carousel', 'upload', 'element', 'slider'], function () {
+        layer = layui.layer //弹层
+            , element = layui.element //元素操作
+
 
     });
-
 </script>
 </body>
 </html>
