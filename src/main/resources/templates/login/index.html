@@ -7,83 +7,121 @@
     <script src="../js/jquery-3.4.1.min.js"></script>
     <script src="../js/layui/layui.js"></script>
     <style>
-        body {
+        .layui-body {
             overflow: hidden;
         }
 
-        .menu-top-right {
-            float: right;
-        }
-
-        .menu-left {
-            float: left;
-        }
-
         iframe {
-            float: left;
             border: none;
             width: 100%;
-
+            height: 100%;
+            overflow: hidden;
         }
 
-        .project_name {
-            margin-right: 30px;
-            font-size: 16px;
+        .layui-body {
+            overflow: hidden;
         }
     </style>
 </head>
-<body>
-<ul class="layui-nav menu-top-left" lay-filter="">
-    <li class="layui-nav-item project_name"><span>工业控制系统</span></li>
-    <li class="layui-nav-item layui-this"><a href="form" target="main_frame">表单</a></li>
-    <li class="layui-nav-item"><a href="table" target="main_frame">列表</a></li>
-    <li class="layui-nav-item">
-        <a href="javascript:;" target="main_frame">解决方案</a>
-        <dl class="layui-nav-child"> <!-- 二级菜单 -->
-            <dd><a href="../login/container" target="main_frame">布局</a></dd>
-            <dd><a href="../login/button" target="main_frame">按钮</a></dd>
-            <dd><a href="../login/tab" target="main_frame">选项卡</a></dd>
-        </dl>
-    </li>
-    <li class="layui-nav-item"><a href="../login/time" target="main_frame">时间线</a></li>
-    <div class="menu-top-right">
-        <li class="layui-nav-item">
-            <a href="">控制台<span class="layui-badge">9</span></a>
-        </li>
-        <li class="layui-nav-item">
-            <a href="">个人中心<span class="layui-badge-dot"></span></a>
-        </li>
-        <li class="layui-nav-item">
-            <a href=""><img src="//t.cn/RCzsdCq" class="layui-nav-img">我</a>
-            <dl class="layui-nav-child">
-                <dd><a href="javascript:;">修改信息</a></dd>
-                <dd><a href="javascript:;">安全管理</a></dd>
-                <dd><a href="javascript:;">退了</a></dd>
-            </dl>
-        </li>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
+        <div class="layui-logo">安全监测审计系统</div>
+        <!-- 头部区域（可配合layui已有的水平导航） -->
+        <ul class="layui-nav layui-layout-left">
+            <li class="layui-nav-item layui-this"><a href="../login/debug" target="main_frame">开发工具</a></li>
+            <li class="layui-nav-item "><a href="form" target="main_frame">表单</a></li>
+            <li class="layui-nav-item"><a href="table" target="main_frame">列表</a></li>
+            <li class="layui-nav-item layadmin-flexible"><a href="javascript:;" layadmin-event="flexible" title="侧边伸缩">
+                <i class="layui-icon layui-icon-shrink-right" id="LAY_app_flexible"></i>
+            </a></li>
+            <li class="layui-nav-item">
+                <a href="javascript:;" target="main_frame">基本元素</a>
+                <dl class="layui-nav-child"> <!-- 二级菜单 -->
+                    <dd><a href="../login/container" target="main_frame">布局</a></dd>
+                    <dd><a href="../login/button" target="main_frame">按钮</a></dd>
+                    <dd><a href="../login/tab" target="main_frame">选项卡</a></dd>
+                    <dd><a href="../login/nav" target="main_frame">导航/面包屑</a></dd>
+                    <dd><a href="../login/progress" target="main_frame">进度条</a></dd>
+                    <dd><a href="../login/pane" target="main_frame">面板</a></dd>
+                    <dd><a href="../login/badge" target="main_frame">徽章</a></dd>
+                    <dd><a href="../login/supply" target="main_frame">辅助元素</a></dd>
+
+                </dl>
+            </li>
+            <li class="layui-nav-item"><a href="../login/time" target="main_frame">时间线</a></li>
+        </ul>
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item">
+                <a href="">控制台<span class="layui-badge">9</span></a>
+            </li>
+            <li class="layui-nav-item">
+                <a href="">个人中心<span class="layui-badge-dot"></span></a>
+            </li>
+            <li class="layui-nav-item">
+                <a href=""><img src="//t.cn/RCzsdCq" class="layui-nav-img">我</a>
+                <dl class="layui-nav-child">
+                    <dd><a href="javascript:;">修改信息</a></dd>
+                    <dd><a href="javascript:;">安全管理</a></dd>
+                    <dd><a href="../login/login_out">退出</a></dd>
+                </dl>
+            </li>
+        </ul>
     </div>
-</ul>
-<iframe src="/login/form" name="main_frame"></iframe>
+
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                <li class="layui-nav-item  layui-nav-itemed">
+                    <a class="" href="javascript:;"><i class="layui-icon layui-icon-home"></i>&nbsp;&nbsp;组件示例<span
+                            class="layui-nav-more"></span></a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="../login/alert" target="main_frame">弹出层</a></dd>
+                        <dd><a href="../login/datetime" target="main_frame">日期与时间选择</a></dd>
+                        <dd><a href="../login/datatable" target="main_frame">数据表格</a></dd>
+                        <dd><a href="../login/page" target="main_frame">分页</a></dd>
+                        <dd><a href="../login/tree" target="main_frame">树形组件</a></dd>
+                        <dd><a href="../login/round" target="main_frame">轮播</a></dd>
+                        <dd><a href="../login/color" target="main_frame">颜色选择器</a></dd>
+                        <dd><a href="../login/shuttle" target="main_frame">穿梭框</a></dd>
+                        <dd><a href="../login/score" target="main_frame">评分</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;"><i class="layui-icon layui-icon-component"></i>&nbsp;&nbsp;解决方案<span
+                            class="layui-nav-more"></span></a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;">列表一</a></dd>
+                        <dd><a href="javascript:;">列表二</a></dd>
+                        <dd><a href="">超链接</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item"><a href=""><i class="layui-icon layui-icon-senior"></i>&nbsp;&nbsp;云市场</a>
+                </li>
+                <li class="layui-nav-item"><a href=""><i class="layui-icon layui-icon-user"></i>&nbsp;&nbsp;发布商品</a>
+                </li>
+                <span class="layui-nav-bar" style="top: 277.5px; height: 0px; opacity: 0;"></span></ul>
+        </div>
+    </div>
+
+    <div class="layui-body">
+        <iframe src="/login/form" name="main_frame"></iframe>
+
+    </div>
+
+    <div class="layui-footer">
+        <!-- 底部固定区域 -->
+        © layui.com - 底部固定区域
+    </div>
+</div>
 <script>
-    //注意：导航 依赖 element 模块，否则无法进行功能性操作
+    //JavaScript代码区域
     layui.use('element', function () {
         var element = layui.element;
-    });
-    //设置iframe的宽度,
-    $(function () {
-        autoIframe();
-    })
-    $(window).resize(function () {
-        autoIframe();
+
     });
 
-    function autoIframe() {
-        // var left_width = $(".menu-left").width();
-        // var all_width = $("body").width();
-        // $("iframe").width(all_width - left_width);
-        var height = window.innerHeight;
-        $("iframe").height(height - 70);//下边距为10,不要下边距减去60
-    }
 </script>
 </body>
 </html>

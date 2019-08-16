@@ -7,13 +7,14 @@
     <script src="../js/jquery-3.4.1.min.js"></script>
     <script src="../js/layui/layui.js"></script>
     <style>
-        .layui-form{
-            margin-top:14%;
+        .layui-form {
+            margin-top: 14%;
             margin-right: 12%;
             float: right;
             background-color: #f2f2f2;
         }
-        body{
+
+        body {
             background-image: url("../img/background.jpg");
             background-repeat: no-repeat;
             background-size: 100%;
@@ -27,7 +28,7 @@
     <div class="layui-form-item">
         <label class="layui-form-label">用户名</label>
         <div class="layui-input-inline">
-            <input type="text" name="user"  lay-verify="required"  placeholder="请输入用户名" autocomplete="off"
+            <input type="text" name="user" lay-verify="required" placeholder="请输入用户名" autocomplete="off"
                    class="layui-input">
         </div>
     </div>
@@ -42,13 +43,37 @@
     <hr/>
     <div class="layui-form-item">
         <div class="layui-input-block">
-            <button class="layui-btn" type="submit">登录</button>
+            <button class="layui-btn" type="submit" id="login">登录</button>
             <button type="reset" class="layui-btn layui-btn-primary">重置</button>
         </div>
     </div>
 </form>
 
 <script>
+    layui.use(['laydate', 'laypage', 'layer', 'table', 'carousel', 'upload', 'element', 'slider'], function () {
+        var laydate = layui.laydate //日期
+            , laypage = layui.laypage //分页
+            , layer = layui.layer //弹层
+            , table = layui.table //表格
+            , carousel = layui.carousel //轮播
+            , upload = layui.upload //上传
+            , element = layui.element //元素操作
+            , slider = layui.slider //滑块
+
+        $("#login").click(function (event) {
+            var user = $("[name=user]").val();
+            var pwd = $("[name=pwd]").val();
+            if (user == "") {
+                layer.msg('请填写用户名！');
+                event.preventDefault();
+
+            } else if (pwd == "") {
+                layer.msg('请填写密码！');
+                event.preventDefault();
+            }
+        })
+    })
+
 
 </script>
 </body>

@@ -12,7 +12,13 @@ import javax.servlet.http.HttpServletResponse;
 @RequestMapping("login")
 public class LoginController {
     @GetMapping("/login")
-    public String login() {
+    public String login(HttpServletRequest request, HttpServletResponse response) {
+        return "/login/login.html";
+    }
+
+    @GetMapping("/login_out")
+    public String login_out(HttpServletRequest request, HttpServletResponse response) {
+        request.getSession().removeAttribute("user");
         return "/login/login.html";
     }
 
@@ -20,8 +26,19 @@ public class LoginController {
     public String index(HttpServletRequest request, HttpServletResponse response) {
         String user = request.getParameter("user");
         String pwd = request.getParameter("pwd");
+        if (user.equals("admin") && pwd.equals("admin")) {
+            request.getSession().setAttribute("user", user);
+            return "/login/index.html";
+        } else {
+            return "/login/login.html";
+        }
 
-        return "/login/index.html";
+    }
+
+    @RequestMapping("/debug")
+    public String debug(HttpServletRequest request, HttpServletResponse response) {
+
+        return "/index/debug.html";
     }
 
     @RequestMapping("/form")
@@ -41,19 +58,94 @@ public class LoginController {
 
         return "/index/container.html";
     }
+
     @RequestMapping("/button")
     public String button(HttpServletRequest request, HttpServletResponse response) {
 
         return "/index/button.html";
     }
+
     @RequestMapping("/tab")
     public String tab(HttpServletRequest request, HttpServletResponse response) {
 
         return "/index/tab.html";
     }
+
     @RequestMapping("/time")
     public String time(HttpServletRequest request, HttpServletResponse response) {
 
         return "/index/time.html";
+    }
+
+    @RequestMapping("/nav")
+    public String nav(HttpServletRequest request, HttpServletResponse response) {
+
+        return "/index/nav.html";
+    }
+
+    @RequestMapping("/progress")
+    public String progress(HttpServletRequest request, HttpServletResponse response) {
+
+        return "/index/progress.html";
+    }
+
+    @RequestMapping("/pane")
+    public String pane(HttpServletRequest request, HttpServletResponse response) {
+        return "/index/pane.html";
+    }
+
+    @RequestMapping("/badge")
+    public String badge(HttpServletRequest request, HttpServletResponse response) {
+        return "/index/badge.html";
+    }
+
+    @RequestMapping("/supply")
+    public String supply(HttpServletRequest request, HttpServletResponse response) {
+        return "/index/supply.html";
+    }
+
+    @RequestMapping("/page")
+    public String page(HttpServletRequest request, HttpServletResponse response) {
+        return "/element/page.html";
+    }
+
+    @RequestMapping("/datatable")
+    public String datatable(HttpServletRequest request, HttpServletResponse response) {
+        return "/element/datatable.html";
+    }
+
+    @RequestMapping("/alert")
+    public String alert(HttpServletRequest request, HttpServletResponse response) {
+        return "/element/alert.html";
+    }
+
+    @RequestMapping("/datetime")
+    public String datetime(HttpServletRequest request, HttpServletResponse response) {
+        return "/element/datetime.html";
+    }
+
+    @RequestMapping("/tree")
+    public String tree(HttpServletRequest request, HttpServletResponse response) {
+        return "/element/tree.html";
+    }
+
+    @RequestMapping("/round")
+    public String round(HttpServletRequest request, HttpServletResponse response) {
+        return "/element/round.html";
+    }
+
+    @RequestMapping("/color")
+    public String color(HttpServletRequest request, HttpServletResponse response) {
+        return "/element/color.html";
+    }
+
+    @RequestMapping("/shuttle")
+    public String shuttle(HttpServletRequest request, HttpServletResponse response) {
+        return "/element/shuttle.html";
+    }
+
+    @RequestMapping("/score")
+    public String score(HttpServletRequest request, HttpServletResponse response) {
+        return "/element/score.html";
     }
 }
